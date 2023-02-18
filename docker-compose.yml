@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  backend: 
+    build: ./Backend
+    command: >
+     sh -c "python3 manage.py migrate && python3 manage.py dbshell < datos.sql && python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+    depends_on:
+      - db
+  frontend:
+    build: ./Frontend
+    ports:
+      - "8080:80"
+    networks:
+      - default
+  db:  # servicio de la base de datos PostgreSQL
+    image: postgres:13  # versión de la imagen de PostgreSQL
+    environment:  # variables de entorno para configurar la base de datos
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db_rutas
+    container_name: postgres
+    networks:
+      - default
+networks:
+  default:
+#ejecutar sudo docker-compose up --build
+#eliminar sudo docker-compose down --rmi all

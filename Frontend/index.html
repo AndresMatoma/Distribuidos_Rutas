@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rutas</title>
+    <script src="https://kit.fontawesome.com/57b93c577e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <link rel="icon" type="image/jpg" href="/marker-bus.png"/>	
+	<link rel="stylesheet" type="text/css" href="mapa.css"/>	
+</head>
+<body>	
+    <div id="map">
+        <div class="hora_actual">
+            <i class="icon far fa-clock"></i>
+            <h1 id="clock"></h1>
+        </div>
+        <div class="next_hora">
+            <div class="hora">
+                <i class="icon fas fa-hourglass-half"></i>
+                <h1 id="next-clock"></h1>
+            </div>
+            <div>
+                <p>Proximas Rutas</p>
+            </div>
+        </div>
+        <div id="me-location" class="container">
+            <label><i class="icon-plus fas fa-location"></i></label>
+        </div>
+    </div>
+	<script src="mapa.js"></script>
+</body>
+</html>
